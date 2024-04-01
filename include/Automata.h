@@ -10,7 +10,7 @@ enum states { OFF, WAIT, ACCEPT, CHECK, COOK };
 class Automata {
  private:
     float cash;
-    std::map<ыев::string, int> prices;
+    std::map<std::string, int> prices;
     states state;
  public:
     Automata();
