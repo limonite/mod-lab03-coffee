@@ -2,6 +2,7 @@
 
 #include "Automata.h"
 #include <iostream>
+#include <map>
 #include <string>
 #include <list>
 
