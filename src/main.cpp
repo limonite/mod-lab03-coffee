@@ -5,8 +5,7 @@
 #include <string>
 #include <list>
 
-int main()
-{
+int main() {
     Automata Machine;
     Machine.on();
     Machine.getMenu();
