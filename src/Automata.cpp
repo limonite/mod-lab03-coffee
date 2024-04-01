@@ -2,10 +2,8 @@
 
 #include "Automata.h"
 #include <iostream>
-#include <string.h>
+#include <string>
 #include <list>
-
-using namespace std;
 
 Automata::Automata() {
 	cash = 0;
@@ -18,22 +16,23 @@ Automata::Automata() {
 	state = OFF;
 }
 
+Automata::~Automata() {}
+
 void Automata::on() {
-	if (state == OFF) {
-		state = WAIT;
-		cout << "Coffe Machine activated" << endl;
-	} else {
-		cout << "Coffe Machine had been activated already" << endl;
-	}
+    if (state == OFF) {
+        state = WAIT;
+        std::cout << "Coffee Machine activated\n" << std::endl;
+    } else {
+        std::cout << "Coffee Machine is already activated\n" << std::endl;
+    }
 }
 
 void Automata::off() {
     if (state == WAIT) {
         state = OFF;
-        cout << "Coffee Machine deactivated\n" << std::endl;
-    }
-    else {
-        cout << "Coffee Machine is already deactivated\n" << std::endl;
+        std::cout << "Coffee Machine deactivated\n" << std::endl;
+    } else {
+        std::cout << "Coffee Machine is already deactivated\n" << std::endl;
     }
 }
 
@@ -41,18 +40,17 @@ void Automata::coin(int money) {
     if (state == WAIT || state == ACCEPT) {
         cash += money;
         state = ACCEPT;
-        cout << "Money received. Total cash: " << cash << "p.\n" << std::endl;
-    }
-    else {
-        cout << "Error occured while coins recieving\n" << std::endl;
+        std::cout << "Total cash: " << cash << "p.\n" << std::endl;
+    } else {
+        std::cout << "Error occured while coins recieving\n" << std::endl;
     }
 }
 
 void Automata::getMenu() {
-    cout << "Coffee machine menu:" << std::endl;
+    std::cout << "Coffee machine menu:" << std::endl;
     if (state == WAIT || state == ACCEPT) {
-        for (auto& element : prices)
-            cout << element.first << " --> " << element.second << "p." << std::endl;
+        for (const auto& element : prices)
+            std::cout << element.first << element.second << std::endl;
     }
 }
 
@@ -61,7 +59,8 @@ states Automata::getState() {
 }
 
 bool Automata::check(std::string name) {
-    if ((state == CHECK || state == ACCEPT) && cash >= prices.find(name)->second)
+    if ((state == CHECK || state == ACCEPT)
+        && cash >= prices.find(name)->second)
         return true;
     state = ACCEPT;
     return false;
@@ -71,8 +70,7 @@ void Automata::choice(std::string name) {
     if (state == ACCEPT) {
         if (prices.count(name) == 0) {
             std::cout << "Chosen drink was not found :(\n";
-        }
-        else {
+        } else {
             state = CHECK;
             if (check(name))
                 cook(name);
@@ -85,8 +83,7 @@ void Automata::cancel() {
         cash = 0;
         state = WAIT;
         std::cout << "Ordering process was cancelled\n" << std::endl;
-    }
-    else {
+    } else {
         std::cout << "Cancel can't be performed\n" << std::endl;
     }
 }
@@ -95,7 +92,7 @@ void Automata::cook(std::string name) {
     std::cout << "Cooking in progress!\n" << std::endl;
     cash -= prices.find(name)->second;
     state = COOK;
-    std::cout << "Your " << prices.find(name)->first << " cooked, please take a drink.\n" << std::endl;
+    std::cout << prices.find(name)->first << " cooked\n" << std::endl;
     finish(name);
 }
 
