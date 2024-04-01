@@ -38,9 +38,9 @@ TEST(AutomataTest, TEST4) {
     Automata Machine;
     Machine.on();
     Machine.coin(500);
-    Machine.choice("Latte Maciato");
-    Machine.cook("Latte Maciato");
-    Machine.finish("Latte Maciato");
+    Machine.choice("Latte");
+    Machine.cook("Latte");
+    Machine.finish("Latte");
     EXPECT_EQ(WAIT, Machine.getState());
 }
 
