@@ -1,6 +1,8 @@
 // Copyright 2022 GHA Test Team
 
 #pragma once
+#ifndef INCLUDE_AUTOMATA_H_
+#define INCLUDE_AUTOMATA_H_
 #include <string>
 #include <map>
 #include <list>
