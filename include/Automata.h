@@ -8,13 +8,11 @@
 enum states { OFF, WAIT, ACCEPT, CHECK, COOK };
 
 class Automata {
-
-private:
-	float cash;
-	map<string, int> prices;
-	states state;
-
-public:
+ private:
+    float cash;
+    map<string, int> prices;
+    states state;
+ public:
     Automata();
     void on();
     void off();
