@@ -6,14 +6,14 @@
 #include <list>
 
 Automata::Automata() {
-	cash = 0;
+    cash = 0;
     prices["Latte"] = 250;
     prices["Cappucino"] = 300;
     prices["Americano"] = 150;
     prices["Espresso"] = 100;
     prices["Moccochino"] = 250;
     prices["Glace"] = 350;
-	state = OFF;
+    state = OFF;
 }
 
 void Automata::on() {
