@@ -2,9 +2,8 @@
 
 #include <iostream>
 #include "Automata.h"
-#include <string.h>
+#include <string>
 #include <list>
-using namespace std;
 
 int main()
 {
