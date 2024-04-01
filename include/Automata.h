@@ -1,19 +1,19 @@
 // Copyright 2022 GHA Test Team
 
 #pragma once
-#include <string.h>
+#include <string>
 #include <map>
 #include <list>
 
 enum states { OFF, WAIT, ACCEPT, CHECK, COOK };
 
-class Automata
-{
-private:
+class Automata {
 
+private:
 	float cash;
-    map<string, int> prices;
+	map<string, int> prices;
 	states state;
+
 public:
     Automata();
     void on();
