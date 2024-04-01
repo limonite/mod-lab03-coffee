@@ -16,8 +16,6 @@ Automata::Automata() {
 	state = OFF;
 }
 
-Automata::~Automata() {}
-
 void Automata::on() {
     if (state == OFF) {
         state = WAIT;
